@@ -14,7 +14,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pQW-58-Xz8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="hgO-0N-02B">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -30,13 +30,15 @@
                             <outlet property="delegate" destination="yAe-75-IcF" id="fbI-Ot-8rg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDo" prompt="Yash Pajwani" id="CkZ-hT-7pI">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="ToDo" prompt="Developed BY and FOR Yash Pajwani" id="CkZ-hT-7pI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h9D-aw-XgJ">
                             <connections>
                                 <action selector="addButtonPressed:" destination="yAe-75-IcF" id="h8a-qa-wlC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVe-kr-tD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
