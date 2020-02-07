@@ -13,7 +13,7 @@ class ToDoListViewController: UITableViewController {
 
     //var itemArray = ["Find Mike","Buy Eggos","Destroy Demogorgon"]
     var itemArray = [Item]()
-    var selectedCategory : Category?{
+    var selectedCategory : Category? {
         didSet{
             loadItems()
         }
@@ -85,7 +85,7 @@ class ToDoListViewController: UITableViewController {
     }
     func loadItems(with request : NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil){
         
-        let categoryPredicate = NSPredicate(format: "parent_catagory.name MATCHES %@", selectedCategory!)
+        let categoryPredicate = NSPredicate(format: "parent_catagory.name MATCHES %@", selectedCategory!.name!)
         
         if let additionalPredicate = predicate{
             request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate,additionalPredicate])
@@ -93,6 +93,7 @@ class ToDoListViewController: UITableViewController {
             request.predicate = categoryPredicate
         }
         do{
+            print(request)
             itemArray =  try context.fetch(request)
         }catch{
             print("Error fetching the data from the context, \(error)")
@@ -113,7 +114,7 @@ extension ToDoListViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
          let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
         if searchBar.text?.count == 0{
-            loadItems(predicate: predicate)
+            loadItems()
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }

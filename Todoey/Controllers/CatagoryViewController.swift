@@ -35,8 +35,8 @@ class CatagoryViewController: UITableViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ToDoListViewController
-        if let indexPath = tableView.indexPathForSelectedRow{
-            destinationVC.selectedCategory = categoryArray[indexPath.row ]
+        if let indexpath = tableView.indexPathForSelectedRow{
+            destinationVC.selectedCategory = categoryArray[indexpath.row]
         }
     }
 
@@ -74,6 +74,8 @@ class CatagoryViewController: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         alert.addTextField { (textfield) in
             textfield.placeholder = "Create New Catagory"
+            textfield.keyboardType = .default
+            textfield.smartInsertDeleteType = .yes
             textField = textfield
         }
         alert.addAction(cancelAction)
